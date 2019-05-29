@@ -1,0 +1,10 @@
+<body>
+    method1
+    <div id="value">Waiting . . .</div>
+</body>
+<script>    
+    (async () => {
+        await CefSharp.BindObjectAsync("bound");
+        bound.getMethod1().then( result => document.getElementById('value').innerHTML = result);
+    })();
+</script>
