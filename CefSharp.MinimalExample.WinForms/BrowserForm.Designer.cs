@@ -39,8 +39,10 @@
             this.goButton = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.showDevToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showDevToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer.ContentPanel.SuspendLayout();
             this.toolStripContainer.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer.SuspendLayout();
@@ -95,7 +97,9 @@
             this.backButton,
             this.forwardButton,
             this.urlTextBox,
-            this.goButton});
+            this.goButton,
+            this.toolStripButton1,
+            this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
@@ -128,7 +132,7 @@
             // 
             this.urlTextBox.AutoSize = false;
             this.urlTextBox.Name = "urlTextBox";
-            this.urlTextBox.Size = new System.Drawing.Size(500, 25);
+            this.urlTextBox.Size = new System.Drawing.Size(400, 25);
             this.urlTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.UrlTextBoxKeyUp);
             // 
             // goButton
@@ -158,20 +162,38 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
-			// 
-			// showDevToolsToolStripMenuItem
-			// 
-			this.showDevToolsToolStripMenuItem.Name = "showDevToolsToolStripMenuItem";
-			this.showDevToolsToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-			this.showDevToolsToolStripMenuItem.Text = "Show DevTools";
-			this.showDevToolsToolStripMenuItem.Click += new System.EventHandler(this.ShowDevToolsMenuItemClick);
-			// 
+            // 
+            // showDevToolsToolStripMenuItem
+            // 
+            this.showDevToolsToolStripMenuItem.Name = "showDevToolsToolStripMenuItem";
+            this.showDevToolsToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.showDevToolsToolStripMenuItem.Text = "Show DevTools";
+            this.showDevToolsToolStripMenuItem.Click += new System.EventHandler(this.ShowDevToolsMenuItemClick);
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitMenuItemClick);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Image = global::CefSharp.MinimalExample.WinForms.Properties.Resources.nav_plain_green;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(65, 22);
+            this.toolStripButton1.Text = "Go to 1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.Image = global::CefSharp.MinimalExample.WinForms.Properties.Resources.nav_plain_green;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(65, 22);
+            this.toolStripButton2.Text = "Go to 2";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // BrowserForm
             // 
@@ -213,6 +235,7 @@
         private System.Windows.Forms.Label outputLabel;
         private System.Windows.Forms.Label statusLabel;
 		private System.Windows.Forms.ToolStripMenuItem showDevToolsToolStripMenuItem;
-
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
     }
 }

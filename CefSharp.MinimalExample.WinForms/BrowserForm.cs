@@ -20,6 +20,7 @@ namespace CefSharp.MinimalExample.WinForms
             Text = "CefSharp";
             WindowState = FormWindowState.Maximized;
 
+            CefSharpSettings.LegacyJavascriptBindingEnabled = true;
             browser = new ChromiumWebBrowser("www.google.com")
             {
                 Dock = DockStyle.Fill,
@@ -33,9 +34,21 @@ namespace CefSharp.MinimalExample.WinForms
             browser.TitleChanged += OnBrowserTitleChanged;
             browser.AddressChanged += OnBrowserAddressChanged;
 
+            browser.RegisterAsyncJsObject("bound", new BoundApi());
+            //browser.JavascriptObjectRepository.Register("bound", new BoundApi(), true);
+
+            LoadResourcePage(1);
+            //String page = string.Format(@"{0}\Resources\index1.html", Application.StartupPath);
+            //browser.Load(page);
+
             var bitness = Environment.Is64BitProcess ? "x64" : "x86";
             var version = String.Format("Chromium: {0}, CEF: {1}, CefSharp: {2}, Environment: {3}", Cef.ChromiumVersion, Cef.CefVersion, Cef.CefSharpVersion, bitness);
             DisplayOutput(version);
+        }
+
+        private void LoadResourcePage(int num) {
+            String page = string.Format(@"{0}\Resources\index{1}.html", Application.StartupPath, num);
+            browser.Load(page);
         }
 
         private void OnIsBrowserInitializedChanged(object sender, IsBrowserInitializedChangedEventArgs e)
@@ -164,6 +177,14 @@ namespace CefSharp.MinimalExample.WinForms
         private void ShowDevToolsMenuItemClick(object sender, EventArgs e)
         {
             browser.ShowDevTools();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e) {
+            LoadResourcePage(1);
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e) {
+            LoadResourcePage(2);
         }
     }
 }
