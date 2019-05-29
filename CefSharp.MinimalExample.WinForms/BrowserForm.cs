@@ -20,7 +20,7 @@ namespace CefSharp.MinimalExample.WinForms
             Text = "CefSharp";
             WindowState = FormWindowState.Maximized;
 
-            CefSharpSettings.LegacyJavascriptBindingEnabled = true;
+            //CefSharpSettings.LegacyJavascriptBindingEnabled = true;
             browser = new ChromiumWebBrowser("www.google.com")
             {
                 Dock = DockStyle.Fill,
@@ -34,8 +34,7 @@ namespace CefSharp.MinimalExample.WinForms
             browser.TitleChanged += OnBrowserTitleChanged;
             browser.AddressChanged += OnBrowserAddressChanged;
 
-            browser.RegisterAsyncJsObject("bound", new BoundApi());
-            //browser.JavascriptObjectRepository.Register("bound", new BoundApi(), true);
+            browser.JavascriptObjectRepository.Register("bound", new BoundApi(), true);
 
             LoadResourcePage(1);
             //String page = string.Format(@"{0}\Resources\index1.html", Application.StartupPath);
